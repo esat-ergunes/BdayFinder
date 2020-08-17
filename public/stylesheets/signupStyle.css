@@ -1,4 +1,4 @@
-* {box-sizing: border-box;}
+/** {box-sizing: border-box;}
 html { height: 100%; display: flex; }
 
 body
@@ -124,4 +124,134 @@ body
   padding: 0.5em;
   margin-bottom: 1em;
   color: #32549d;
+}*/
+
+*
+{
+    box-sizing:         border-box;
+    -moz-box-sizing:    border-box;
+    -webkit-box-sizing: border-box;
 }
+
+body
+{
+  margin: 0;
+  padding: 0;
+  background: #111616;
+  font-family: arial, sans-serif;
+}
+
+a
+{
+  text-decoration: none
+}
+.alert
+{
+  
+  padding: 0.5em;
+  margin-bottom: 1em;
+  /*color: red;*/
+  border-radius: 0;
+  text-align: center;
+}
+.hidden
+{
+  display:none;
+}
+.user-card
+{
+	width: 350px;
+	height: 350px;
+  /*margin: calc(28%/2) auto; for dekstop */
+  margin:calc(50vh/2) auto;
+  position: relative;
+	background: #fff;
+	overflow: hidden;
+	box-shadow:         0 1px 3px 0 rgba(0,0,0,0.08);
+	-moz-box-shadow:    0 1px 3px 0 rgba(0,0,0,0.08);
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0,0,0,0.08);
+  border-radius:         5px;
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+}
+
+input
+{
+	width: 100%;
+	height: 40px;
+	border-radius:         3px;
+	-moz-border-radius:    3px;
+	-webkit-border-radius: 3px;
+	border: 1px solid #dee3e4;
+	padding: 3px 12px;
+	margin: 6px 0;
+}
+
+input.Bday{
+  color: #757575;
+}
+
+input:focus
+{
+	outline: none;
+	border: 1px solid #111616;
+	transition:         all .5s ease-in-out;
+	-o-transition:      all .5s ease-in-out;
+	-moz-transition:    all .5s ease-in-out;
+	-webkit-transition: all .5s ease-in-out;
+}
+
+
+.signup-box
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: calc(100% - 25px);
+	background: #fff;
+  border-radius:         5px;
+  -moz-border-radius:    5px;
+  -webkit-border-radius: 5px;
+}
+.signup-box{
+	padding: 40px;
+	right: 0;
+}
+
+.SignUp
+{
+	text-align: center;
+	color: #fff;
+	background: #F03136;
+	line-height: 30px;
+	opacity: 0.95;
+  cursor: pointer
+}
+
+
+/**** footer *****/
+
+.user-card .footer
+{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+	height: 25px;
+	text-align: center;
+	color: #666;
+	font-size: 13px;
+	font-family: sans-serif;
+}
+
+.footer a
+{
+	color: #F03136;
+}
+
+
+
+/*--------------------mediaquery---------------------*/
+
+
