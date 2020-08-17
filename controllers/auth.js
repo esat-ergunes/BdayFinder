@@ -2,12 +2,14 @@
 const User = require('../models/User');
 //const passport = require('../passport/passport');
 const jwt = require('jsonwebtoken');
+const { response } = require('express');
+const { token } = require('morgan');
 
  const signup = async (req,res,next)=>{
     let username = req.body.username;
     let password = req.body.password;
 
-    const user = new User({username: username});
+    const user = new User({method:'local',username: username});
 
     await user.setPassword(password);
     await user.save().then(result=>{
@@ -69,5 +71,24 @@ res.json({
  }
 
 
+ const facebookOAuth = async(req,res,next) => {
+     console.log('testttttttttt');
+   console.log(req.user, res.user);
+  
+ }
+
+
+ const secret  = async(req,res,next)=>{
+     console.log('user called the secret');
+
+    
+ }
+
+
+
+
  module.exports.signup =signup;
   module.exports.login = login;
+  module.exports.facebookOAuth=facebookOAuth;
+  module.exports.secret = secret;
+  

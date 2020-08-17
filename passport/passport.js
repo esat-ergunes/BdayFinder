@@ -1,11 +1,18 @@
 const passport = require('passport');
 const User = require('../models/User');
+const { token } = require('morgan');
+// load the auth variables for fb 
+var configAuth = require('../controllers/auth');
+
+/*-----------FACEBOOK----------*/
+//const FacebookTokenStrategy = require('passport-facebook-token');
+const FacebookStrategy = require("passport-facebook").Strategy;
+
+const config = require('../configuration')
+/*-----------------------------*/
 
 // CHANGE: USE "createStrategy" INSTEAD OF "authenticate"
 passport.use(User.createStrategy());
-
-
-
 // OPTIONAL: serialize user data for sessions
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -31,5 +38,43 @@ passport.use(
     });
   })
 );
+
+//FACEBOOK
+passport.use('facebook', new FacebookStrategy({
+
+  clientID: config.oauth.facebook.clientID,
+  clientSecret:config.oauth.facebook.clientSecret,
+  callbackURL:config.oauth.facebook.callbackURL,
+  profileFields : ['emails']
+
+}, async (accessToken, refreshToken, profile, done) => {
+  try{
+    console.log('profile',profile);
+    console.log("accessToken",accessToken);
+    console.log("refreshToken", refreshToken);
+
+    const existingUser = await User.findOne({"facebook.id":profile.id});
+    if(existingUser){
+      return done(null,existingUser);
+    }
+    const newUser = new User({
+      method:'facebook',
+      facebook:{
+        id: profile.id,
+        email: profile.emails[0].value
+      }
+    });
+    await newUser.save();
+    done(null,newUser);
+
+
+
+  }catch(error){
+    done(error, false, error.message);
+    console.log('there is an error ');
+;  }
+}));
+
+
 
 module.exports = passport;

@@ -9,9 +9,13 @@ const usersRouter = require('./routes/users');
 const passport = require('./passport/passport');
 const apiTodoRouter = require('./routes/api/v1/todos');
 
+const authController = require("./controllers/auth");
 
+/* bodyParser*/
+const bodyParser = require('body-parser');
 /* connection to mongodb database */
 const mongoose = require("mongoose");
+const User = require('./models/User');
 mongoose.set('useCreateIndex',true);
 mongoose.connect("mongodb://localhost:27017/BdayFinder", {
   useNewUrlParser: true,
@@ -21,11 +25,49 @@ mongoose.connect("mongodb://localhost:27017/BdayFinder", {
 const app = express();
 
 
+/*----------------facebook login----------------------- */
+
+
+/*----------------------------------------------------- */
+
+
+/*---------------facebook-strategy----------------------*/
+/*passport.use(
+  new facebookStrategy(
+    {
+      // pull in our app id and secret from our auth.js file
+      clientID: "732399404245337",
+      clientSecret: "e2e7ac038e368beae3a84a41d2c38118",
+      callbackURL: "http://localhost:3000/facebook/callback",
+    }, // facebook will send back the token and profile
+    function (token, refreshToken, profile, done) {
+      console.log(profile);
+      return done(null, profile);
+    }
+  )
+);*/
+
+passport.serializeUser(function (user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function (user, done) {
+  done(null, user);
+});
+
+/*------------------------------------------------------*/
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
+/*---------bodparser----------*/
+app.use(bodyParser.json());
+/*--------------------------- */
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -36,6 +78,18 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/api/v1/todos", passport.authenticate('jwt', { session: false }),apiTodoRouter);
 //app.use('/api/v1/todos',passport.authenticate('jwt', { session: false }), apiTodoRouter);
+/*----------------------FacebookLogin-----------------------*/
+/*app.get("/auth/facebook", passport.authenticate("facebookToken"),authController.facebookOAuth);
+  app.get('/auth/facebook/callback',passport.authenticate('facebookToken', { successRedirect: '/app',failureRedirect: '/login' }));
+*/
+
+app.get('/auth/facebook',passport.authenticate("facebook",{scope:['email']},{session:false}),authController.facebookOAuth);
+app.get('/auth/facebook/callback',passport.authenticate('facebook', { successRedirect: '/app', failureRedirect: '/login', }));
+
+
+
+  
+/*---------------------------------------------------------------- */
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

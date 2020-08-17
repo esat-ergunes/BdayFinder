@@ -1,5 +1,5 @@
-let btnLogin = document.querySelector(".login button").addEventListener("click", (e) => {
-    let username = document.querySelector("#email").value;
+let btnLogin = document.querySelector("#btnLogin").addEventListener("click", (e) => {
+    let username = document.querySelector("#username").value;
     let password = document.querySelector("#password").value;
 
     fetch("http://localhost:3000/users/login", {
@@ -22,6 +22,10 @@ let btnLogin = document.querySelector(".login button").addEventListener("click",
           let feedback = document.querySelector(".alert");
           feedback.textContent = "username or password doesnt match";
           feedback.classList.remove("hidden");
+           setTimeout(() => {
+             document.querySelector(".alert").classList.add("hidden");
+           }, 5000);
         }
       })
+
   });
