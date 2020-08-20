@@ -5,11 +5,25 @@ const jwt = require('jsonwebtoken');
 const { response } = require('express');
 const { token } = require('morgan');
 
+
  const signup = async (req,res,next)=>{
     let username = req.body.username;
+    let email = req.body.email;
+    /*let Bday = req.body.Bday;*/
+
+    let UserBday = new Date(req.body.Bday);
+    let formatedDate= UserBday.getDate() + "-" + (UserBday.getMonth()+1) + "-"+ UserBday.getFullYear();
     let password = req.body.password;
 
-    const user = new User({method:'local',username: username});
+   
+    console.log( formatedDate);
+    console.log(req.body.email);
+    console.log(req.body.username);
+
+    const user = new User({method:'local',username: username, email: email, Bday: formatedDate});
+    console.log(formatedDate);
+    console.log(req.body.email);
+    console.log(req.body.username);
 
     await user.setPassword(password);
     await user.save().then(result=>{
@@ -41,6 +55,7 @@ res.json({
  const login = async (req,res,next)=>{
      const  user  = await User.authenticate()(req.body.username, req.body.password).then(result=>{
         console.log(result.user._id);
+        console.log(result.user);
         if(!result.user){
              return res.json({
                "status": "faild",
@@ -57,7 +72,8 @@ res.json({
         return res.json({
             "status":"success",
             "data":{
-                "token":token
+                "token":token,
+                "birthday":result.user.Bday
             }
         });
 
@@ -84,6 +100,9 @@ res.json({
     
  }
 
+ 
+ 
+
 
 
 
@@ -91,4 +110,5 @@ res.json({
   module.exports.login = login;
   module.exports.facebookOAuth=facebookOAuth;
   module.exports.secret = secret;
+
   

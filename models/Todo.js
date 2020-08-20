@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const todochema = new Schema({
   text: { type: String, required: true }, // String is shorthand for {type: String}
   user: String,
-  Bday: String,
   completed: Boolean,
 });
 

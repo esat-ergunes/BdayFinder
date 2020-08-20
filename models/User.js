@@ -11,7 +11,14 @@ const User = new Schema({
         enum:['local','facebook'],
         required: true
     },
-    facebook:{
+    email:{
+        type:String,
+            lowercase:true
+    },Bday:{
+        type:String
+    },username:{
+        type:String
+    },facebook:{
         id:{
             type:String
         },

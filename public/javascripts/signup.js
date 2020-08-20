@@ -1,49 +1,76 @@
-//const { post, response } = require("../app");
-//const passport = require("passport");
-//const { json } = require("express");
 
-let btnSignup = document.querySelector(".SignUp").addEventListener("click",()=>{
 
-    let username = document.querySelector("#email").value;
+let btnSignup = document.querySelector(".signup").addEventListener("click",(e)=>{
+e.preventDefault();
+    let username = document.querySelector("#username").value;
+    let email = document.querySelector("#email").value;
+    let Bday = document.querySelector("#date").value;
     let password = document.querySelector("#password").value;
+    let userBday = new Date(Bday);
+    let formatedDate = userBday.toLocaleDateString("nl-NL", "full");
+    let link = document.querySelector(".signup");
+    var validEmailRegEx = /^[A-Z0-9_'%=+!`#~$*?^{}&|-]+([\.][A-Z0-9_'%=+!`#~$*?^{}&|-]+)*@[A-Z0-9-]+(\.[A-Z0-9-]+)+$/i;
+    
 
-    fetch('http://localhost:3000/users/signup',{
-    method:"post",
-    headers:{
-        'Content-Type': 'application/json'
-    },
-    body:JSON.stringify({
-        "username":username,
-        "password": password
-    })
-    }).then(response=>{
-        return response.json();
-    }).then(json=>{
-        if(json.status === "success"){
-            let feedback = document.querySelector(".alert");
-            feedback.textContent="✅ Sign up complete!";
-            feedback.classList.remove('hidden');
-            feedback.classList.add("alert-success");
-            let token = json.data.token;
+    if(username != "" && password != "" && email != "" && password != "" && Bday != "" ){
 
-            localStorage.setItem("token",token);
-            window.location.href="app.html";
+if (validEmailRegEx.test(email)) {
+     fetch("http://localhost:3000/users/signup", {
+       method: "post",
+       headers: {
+         "Content-Type": "application/json",
+       },
+       body: JSON.stringify({
+         username: username,
+         email: email,
+         Bday: Bday,
+         password: password,
+       }),
+     })
+       .then((response) => {
+         return response.json();
+       })
+       .then((json) => {
+         if (json.status === "success") {
+           let feedback = document.querySelector(".alert");
+           feedback.textContent = "✅ Sign up complete!";
+           feedback.classList.remove("hidden");
+           feedback.classList.add("alert-success");
+           let token = json.data.token;
 
-        }
-       
+           localStorage.setItem("token", token);
+           link.setAttribute("href", "/birthday/" + Bday);
+           // window.location.href="app.html";
+           window.location.href="/birthday/"+Bday+".html";
+         }
+       });
+    } else {
+       let feedback = document.querySelector(".alert");
+       feedback.textContent =
+         "😱 Oops, please enter a valid email.";
+       feedback.classList.remove("hidden");
+       setTimeout(() => {
+         document.querySelector(".alert").classList.add("hidden");
+       }, 5000);
+       feedback.classList.add("alert-danger");
+
+       link.setAttribute("href", "#");
+    }
+
         
        
-    });
- if (username || password === "") {
-   console.log("all fileds are required!");
-   let feedback = document.querySelector(".alert");
-   feedback.textContent = "😱 Oops, you need to complete all fields to register.";
-    feedback.classList.remove("hidden");
-    setTimeout(() => {
-      document.querySelector(".alert").classList.add("hidden");
-    }, 5000);
-    feedback.classList.add("alert-danger");
- }
-   
+    }else{
+        console.log("all fileds are required!");
+        let feedback = document.querySelector(".alert");
+        feedback.textContent =
+          "😱 Oops, you need to complete all fields to register.";
+        feedback.classList.remove("hidden");
+        setTimeout(() => {
+          document.querySelector(".alert").classList.add("hidden");
+        }, 5000);
+        feedback.classList.add("alert-danger");
 
+        link.setAttribute("href", "#");
+    }
+    
 });

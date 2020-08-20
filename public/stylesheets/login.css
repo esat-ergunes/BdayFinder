@@ -173,6 +173,9 @@ a
   /*color: red;*/
   border-radius: 0;
   text-align: center;
+  position: absolute;
+  top: 0;
+    width: 100%;
 }
 .hidden
 {
@@ -324,4 +327,7 @@ input:focus
 {
 	color: #F03136;
 }
+
+
+
 

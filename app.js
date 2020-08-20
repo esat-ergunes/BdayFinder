@@ -77,6 +77,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/api/v1/todos", passport.authenticate('jwt', { session: false }),apiTodoRouter);
+
 //app.use('/api/v1/todos',passport.authenticate('jwt', { session: false }), apiTodoRouter);
 /*----------------------FacebookLogin-----------------------*/
 /*app.get("/auth/facebook", passport.authenticate("facebookToken"),authController.facebookOAuth);
@@ -86,6 +87,17 @@ app.use("/api/v1/todos", passport.authenticate('jwt', { session: false }),apiTod
 app.get('/auth/facebook',passport.authenticate("facebook",{scope:['email']},{session:false}),authController.facebookOAuth);
 app.get('/auth/facebook/callback',passport.authenticate('facebook', { successRedirect: '/app', failureRedirect: '/login', }));
 
+/*app.get('/app/:id',(req,res,next)=>{
+  console.log(req.params);
+
+});*/
+
+
+app.get("/birthday/:Bday", (req, res, next) => {
+  const Bday = req.params.Bday;
+  console.log(Bday);
+  res.render("details");
+});
 
 
   

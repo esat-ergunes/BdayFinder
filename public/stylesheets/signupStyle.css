@@ -153,6 +153,9 @@ a
   /*color: red;*/
   border-radius: 0;
   text-align: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .hidden
 {
@@ -218,7 +221,7 @@ input:focus
 	padding: 40px;
 	right: 0;
 }
-
+/*
 .SignUp
 {
 	text-align: center;
@@ -227,6 +230,11 @@ input:focus
 	line-height: 30px;
 	opacity: 0.95;
   cursor: pointer
+}*/
+a#btnSignUp {
+    width: 100%;
+    border-radius: 3px;
+    background-color: #EF3E47!important;
 }
 
 

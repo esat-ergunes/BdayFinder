@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth');
 const passport = require('passport');
+const { authenticate } = require('passport');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -10,6 +11,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/signup',authController.signup);
 router.post("/login", authController.login);
+
+
 
 //router.post("/oauth/facebook",passport.authenticate('facebookToken',{session:false}),authController.facebookOAuth);
 
