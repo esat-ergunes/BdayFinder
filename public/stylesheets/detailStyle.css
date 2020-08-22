@@ -1,0 +1,96 @@
+body{
+  background-color:black;
+}
+.canvas{
+ width:100%;
+  background-color:black;
+  display:grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+
+  height: 100vh;
+}
+
+.monster{
+    text-align: end;
+    grid-column-end: 5;
+    grid-row-start: 1;
+
+}
+.monster img{
+  
+  width: 75px;
+    margin-top: -47px;
+}
+
+.card{
+grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  background-color:white;
+grid-row-start: 2;
+grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  border-radius:20px;
+  display:grid;
+}
+.btn-div{
+     /* display: grid; */
+    display: inline-grid;
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row-end: 5;
+    grid-row-start: 4;
+  align-self: end;
+      margin-top: 4px;
+}
+
+.btnChat{
+
+    background-color: #EF3E47;
+    padding: 30px 10px;
+    border-radius: 19px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-family: sans-serif;
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+  box-shadow: 0px -5px 17px -9px rgba(0,0,0,0.75);
+}
+
+
+.card-header{
+  grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-end: 2;
+    align-self: center;
+    text-align: center;
+  font-family:sans-serif;
+  font-weight:400;
+  font-size:14px;
+ 
+}
+
+.card-body{
+     grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-end: 3;
+    align-self: end;
+    text-align: center;
+  font-family:sans-serif;
+  font-weight:500;
+  font-size:15px;
+}
+
+i.fas.fa-power-off {
+    color: white;
+    font-size: 29px;
+    margin-left: 20px;
+    margin-top: 30px;
+}
