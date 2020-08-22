@@ -34,8 +34,8 @@ if (username === "" || password === "") {
          let Bday = json.data.birthday;
          localStorage.setItem("token", token);
 
-         //link.setAttribute("href", "birthday/" + Bday);
-         window.location.href = "birthday/" + Bday + ".html";
+         link.setAttribute("href", "birthday/" + Bday);
+         //window.location.href = "birthday/" + Bday + ".html";
        } else {
          console.log(link);
          console.log(json.status);
