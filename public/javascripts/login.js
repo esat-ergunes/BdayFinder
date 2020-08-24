@@ -33,10 +33,11 @@ if (username === "" || password === "") {
          let token = json.data.token;
          let Bday = json.data.birthday;
          localStorage.setItem("token", token);
+         
 
-         link.setAttribute("href", "birthday/" + Bday);
-         //window.location.href = "birthday/" + Bday + ".html";
-       } else {
+         //link.setAttribute("href", "birthday/" + Bday);
+         window.location.href = "birthday/" + Bday + ".html";
+       }else {
          console.log(link);
          console.log(json.status);
          let feedback = document.querySelector(".alert");
@@ -46,7 +47,10 @@ if (username === "" || password === "") {
            document.querySelector(".alert").classList.add("hidden");
          }, 5000);
          link.setAttribute("href", "#");
+          //window.location.href = "/login.html";
        }
+
+       
      });
 
 }

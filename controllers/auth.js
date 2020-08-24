@@ -73,7 +73,8 @@ res.json({
             "status":"success",
             "data":{
                 "token":token,
-                "birthday":result.user.Bday
+                "birthday":result.user.Bday,
+                "username":result.user.username
             }
         });
 

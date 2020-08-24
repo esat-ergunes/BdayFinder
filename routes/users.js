@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth');
+const userController = require('../controllers/api/v1/userData');
 const passport = require('passport');
 const { authenticate } = require('passport');
 
@@ -11,6 +12,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/signup',authController.signup);
 router.post("/login", authController.login);
+
 
 
 

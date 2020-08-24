@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const passport = require('./passport/passport');
 const apiTodoRouter = require('./routes/api/v1/todos');
+const apiUserRouter = require("./routes/api/v1/user");
 
 const authController = require("./controllers/auth");
 
@@ -16,6 +17,7 @@ const bodyParser = require('body-parser');
 /* connection to mongodb database */
 const mongoose = require("mongoose");
 const User = require('./models/User');
+const { assert } = require('console');
 mongoose.set('useCreateIndex',true);
 mongoose.connect("mongodb://localhost:27017/BdayFinder", {
   useNewUrlParser: true,
@@ -62,6 +64,7 @@ app.use(passport.session());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
+
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
@@ -77,6 +80,9 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/api/v1/todos", passport.authenticate('jwt', { session: false }),apiTodoRouter);
+app.use("/api/v1/userData", passport.authenticate('jwt', { session: false }),apiUserRouter);
+
+
 
 //app.use('/api/v1/todos',passport.authenticate('jwt', { session: false }), apiTodoRouter);
 /*----------------------FacebookLogin-----------------------*/
@@ -95,8 +101,16 @@ app.get('/auth/facebook/callback',passport.authenticate('facebook', { successRed
 
 app.get("/birthday/:Bday", (req, res, next) => {
   const Bday = req.params.Bday;
+ 
   console.log(Bday);
-  res.render("details");
+  
+  //res.render("/public/details");
+
+  res.sendfile(__dirname + "/public/details.html");
+  
+  
+
+
 });
 
 
