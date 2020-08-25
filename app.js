@@ -101,7 +101,8 @@ app.get('/auth/facebook/callback',passport.authenticate('facebook', { successRed
 
 app.get("/birthday/:Bday", (req, res, next) => {
   const Bday = req.params.Bday;
- 
+  
+
   console.log(Bday);
   
   //res.render("/public/details");
