@@ -1,5 +1,7 @@
 
-
+if (!localStorage.getItem("token")) {
+  window.location.href = "login.html";
+}
 
  fetch("http://localhost:3000/details", {
    'headers': {
