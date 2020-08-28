@@ -4,7 +4,7 @@ if (!localStorage.getItem("token")) {
   window.location.href = "login.html";
 }
 
- fetch(base_url + "/api/v1/todos", {
+ fetch(base_url + "/api/v1/userData", {
    'headers': {
      'Authorization': 'Bearer ' + localStorage.getItem('token')
    }
