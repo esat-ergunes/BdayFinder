@@ -8,6 +8,9 @@ var app = require('../app');
 var debug = require('debug')('bdayfinder:server');
 var http = require('http');
 
+
+
+
 /**
  * Get port from environment and store in Express.
  */
@@ -17,12 +20,14 @@ app.set('port', port);
 
 console.log(port);
 
+
+
 /**
  * Create HTTP server.
  */
 
 var server = http.createServer(app);
-
+const primus = require('../Primus/primus').go(server);
 /**
  * Listen on provided port, on all network interfaces.
  */

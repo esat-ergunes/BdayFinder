@@ -8,6 +8,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const passport = require('./passport/passport');
 const apiTodoRouter = require('./routes/api/v1/todos');
+const apiChatRouter = require("./routes/api/v1/chat");
 const apiUserRouter = require("./routes/api/v1/user");
 
 const authController = require("./controllers/auth");
@@ -94,6 +95,7 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/api/v1/todos", passport.authenticate('jwt', { session: false }),apiTodoRouter);
+app.use("/api/v1/chat", passport.authenticate('jwt', { session: false }),apiChatRouter);
 app.use("/api/v1/userData", passport.authenticate('jwt', { session: false }),apiUserRouter);
 
 
