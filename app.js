@@ -23,7 +23,7 @@ mongoose.set('useCreateIndex',true);
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });*/
-mongoose.connect(config.get('Database.conn'), {
+mongoose.connect(process.env.dbconn || config.get('Database.conn'), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
