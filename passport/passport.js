@@ -8,8 +8,10 @@ var configAuth = require('../controllers/auth');
 //const FacebookTokenStrategy = require('passport-facebook-token');
 const FacebookStrategy = require("passport-facebook").Strategy;
 
-const config = require('../configuration')
+const configFB = require('../configuration')
 /*-----------------------------*/
+
+const config = require('config');
 
 // CHANGE: USE "createStrategy" INSTEAD OF "authenticate"
 passport.use(User.createStrategy());
@@ -22,7 +24,7 @@ var JwtStrategy = require("passport-jwt").Strategy,
   ExtractJwt = require("passport-jwt").ExtractJwt;
 var opts = {};
 opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = "MyVerySecretWord";
+opts.secretOrKey = config.get('jwt.secret');
 passport.use(
   new JwtStrategy(opts, function (jwt_payload, done) {
     User.findOne({ _id: jwt_payload.uid }, function (err, user) {
@@ -39,12 +41,13 @@ passport.use(
   })
 );
 
+
 //FACEBOOK
 passport.use('facebook', new FacebookStrategy({
 
-  clientID: config.oauth.facebook.clientID,
-  clientSecret:config.oauth.facebook.clientSecret,
-  callbackURL:config.oauth.facebook.callbackURL,
+  clientID: configFB.oauth.facebook.clientID,
+  clientSecret:configFB.oauth.facebook.clientSecret,
+  callbackURL:configFB.oauth.facebook.callbackURL,
   profileFields : ['emails']
 
 }, async (accessToken, refreshToken, profile, done) => {

@@ -11,7 +11,7 @@ const apiTodoRouter = require('./routes/api/v1/todos');
 const apiUserRouter = require("./routes/api/v1/user");
 
 const authController = require("./controllers/auth");
-
+const config = require("config");
 /* bodyParser*/
 const bodyParser = require('body-parser');
 /* connection to mongodb database */
@@ -19,7 +19,11 @@ const mongoose = require("mongoose");
 const User = require('./models/User');
 const { assert } = require('console');
 mongoose.set('useCreateIndex',true);
-mongoose.connect("mongodb://localhost:27017/BdayFinder", {
+/*mongoose.connect("mongodb://localhost:27017/BdayFinder", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});*/
+mongoose.connect(config.get('Database.conn'), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

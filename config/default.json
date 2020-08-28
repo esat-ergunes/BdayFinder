@@ -1,0 +1,11 @@
+{
+
+
+    "Database":{
+        "conn":"mongodb://localhost:27017/BdayFinder"
+    },
+    "jwt":{
+        "secret":"MyVerySecretWord"
+    }
+
+}
