@@ -1,4 +1,5 @@
 
+const base_url = "https://bdayfinder.herokuapp.com/";
 let btnLogin = document.querySelector("#btnLogin").addEventListener("click", (e) => {
   e.preventDefault();
     let username = document.querySelector("#username").value;
@@ -14,7 +15,7 @@ if (username === "" || password === "") {
   }, 5000);
   link.setAttribute("href", "#");
 }else{
-   fetch("http://localhost:3000/users/login", {
+   fetch(base_url+"/users/login", {
      method: "post",
      headers: {
        "Content-Type": "application/json",

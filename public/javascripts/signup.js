@@ -1,5 +1,5 @@
 
-
+const base_url = "https://bdayfinder.herokuapp.com/";
 let btnSignup = document.querySelector(".signup").addEventListener("click",(e)=>{
 e.preventDefault();
     let username = document.querySelector("#username").value;
@@ -15,7 +15,7 @@ e.preventDefault();
     if(username != "" && password != "" && email != "" && password != "" && Bday != "" ){
 
 if (validEmailRegEx.test(email)) {
-     fetch("http://localhost:3000/users/signup", {
+     fetch(base_url+"/users/signup", {
        method: "post",
        headers: {
          "Content-Type": "application/json",

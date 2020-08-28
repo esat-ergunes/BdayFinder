@@ -1,11 +1,11 @@
 
-
+const base_url = "https://bdayfinder.herokuapp.com/";
 let welcomeText = document.querySelector("card-header");
 let registeredUsers = document.querySelector(".registeredUsers");
 let logoutBtn = document.querySelector(".logout");
 let usrName = document.querySelector(".usrName");
 
-fetch("http://localhost:3000/api/v1/userData", {
+fetch(base_url+"/api/v1/userData", {
    'headers': {
      'Authorization': 'Bearer ' + localStorage.getItem('token')
    }

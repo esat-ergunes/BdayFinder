@@ -23,10 +23,13 @@ mongoose.set('useCreateIndex',true);
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });*/
+/*
 mongoose.connect(process.env.dbconn || config.get('Database.conn'), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+});*/
+//console.log(process.env);
+
 
 const app = express();
 
