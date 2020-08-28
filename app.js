@@ -121,7 +121,8 @@ app.get("/birthday/:Bday", (req, res, next) => {
   
   //res.render("/public/details");
 
-  res.sendfile(__dirname + "/public/details.html");
+  /*res.sendfile(__dirname + "/public/details.html");*/
+  res.sendfile(__dirname + "/public/index.html");
   
   
 
