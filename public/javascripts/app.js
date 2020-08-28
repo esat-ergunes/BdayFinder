@@ -1,7 +1,7 @@
 
 
 
- fetch("http://localhost:3000/api/v1/todos", {
+ fetch("http://localhost:3000/details", {
    'headers': {
      'Authorization': 'Bearer ' + localStorage.getItem('token')
    }
@@ -11,7 +11,7 @@
      console.log(json);
    }).catch(err => {
      console.log("⛔️⛔️⛔️");
-      window.location.href = "loginclea.html";
+      window.location.href = "login.html";
     
      
      
