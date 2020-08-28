@@ -29,7 +29,7 @@ mongoose.connect(process.env.dbconn || config.get('Database.conn'), {
   useUnifiedTopology: true,
 });
 //console.log(process.env);
-
+console.log(process.env.NODE_ENV); 
 
 const app = express();
 

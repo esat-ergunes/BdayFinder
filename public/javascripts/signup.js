@@ -15,7 +15,7 @@ console.log(base_url+"/users/signup");
     if(username != "" && password != "" && email != "" && password != "" && Bday != "" ){
 
 if (validEmailRegEx.test(email)) {
-     fetch(base_url+"/users/signup", {
+     fetch(base_url+"/routes/users/signup", {
        method: "post",
        headers: {
          "Content-Type": "application/json",
