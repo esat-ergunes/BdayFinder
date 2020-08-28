@@ -28,6 +28,13 @@ mongoose.connect(process.env.dbconn || config.get('Database.conn'), {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+
+if(process.env.dbconn === "production"){
+  console.log('qsdqsdqsdqs');
+}else{
+  console.log('not production');
+}
 //console.log(process.env);
 console.log(process.env.NODE_ENV); 
 
