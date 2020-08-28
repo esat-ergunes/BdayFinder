@@ -1,5 +1,5 @@
 
-const base_url = "https://bdayfinder.herokuapp.com/";
+const base_url = "https://bdayfinder.herokuapp.com";
 let welcomeText = document.querySelector("card-header");
 let registeredUsers = document.querySelector(".registeredUsers");
 let logoutBtn = document.querySelector(".logout");

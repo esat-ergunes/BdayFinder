@@ -1,5 +1,5 @@
 
-const base_url = "https://bdayfinder.herokuapp.com/";
+const base_url = "https://bdayfinder.herokuapp.com";
 let btnSignup = document.querySelector(".signup").addEventListener("click",(e)=>{
 e.preventDefault();
     let username = document.querySelector("#username").value;
@@ -11,7 +11,7 @@ e.preventDefault();
     let link = document.querySelector(".signup");
     var validEmailRegEx = /^[A-Z0-9_'%=+!`#~$*?^{}&|-]+([\.][A-Z0-9_'%=+!`#~$*?^{}&|-]+)*@[A-Z0-9-]+(\.[A-Z0-9-]+)+$/i;
     
-
+console.log(base_url+"/users/signup");
     if(username != "" && password != "" && email != "" && password != "" && Bday != "" ){
 
 if (validEmailRegEx.test(email)) {
