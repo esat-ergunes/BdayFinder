@@ -31,9 +31,9 @@ mongoose.connect(process.env.dbconn || config.get('Database.conn'), {
 
 
 if(process.env.dbconn === "production"){
-  console.log('qsdqsdqsdqs');
+  console.log("Production");
 }else{
-  console.log('not production');
+  console.log('Local');
 }
 //console.log(process.env);
 console.log(process.env.NODE_ENV); 
