@@ -16,7 +16,7 @@ if (username === "" || password === "") {
   }, 5000);
   link.setAttribute("href", "#");
 }else{
-   fetch(base_url+"/users/login", {
+   fetch(base_url + "/users/login", {
      method: "post",
      headers: {
        "Content-Type": "application/json",

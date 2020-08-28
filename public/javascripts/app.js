@@ -1,9 +1,10 @@
 
+const base_url = "https://bdayfinder.herokuapp.com";
 if (!localStorage.getItem("token")) {
   window.location.href = "login.html";
 }
 
- fetch("http://localhost:3000/details", {
+ fetch(base_url + "/api/v1/todos", {
    'headers': {
      'Authorization': 'Bearer ' + localStorage.getItem('token')
    }
