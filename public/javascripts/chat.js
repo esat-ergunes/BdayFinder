@@ -1,8 +1,9 @@
+const { text, json } = require("body-parser");
 
 
 const base_url = "https://bdayfinder.herokuapp.com";
 
-primus = Primus.connect("https://bdayfinder.herokuapp.com", {
+primus = Primus.connect(base_url, {
   reconnect: {
       max: Infinity // Number: The max delay before we try to reconnect.
     , min: 500 // Number: The minimum delay before we try reconnect.
@@ -29,13 +30,21 @@ btnSend.addEventListener('click', (e)=>{
     if(message !== ""){
 
        console.log('qsdqsdqs');
-        fetch(base_url + "/api/v1/chat", {
+        fetch(base_url+"/api/v1/chat", {
           method: "post",
           headers: {
             'Content-Type': "application/json",
             'Authorization': 'Bearer ' + localStorage.getItem('token')
-          },
-        });
+          },body: JSON.stringify({
+              text:message
+          })
+        }).then(result =>{
+            return result.json();
+        }).then(json=>{
+        console.log('fetchScussess');
+        }).catch(err=>{
+            console.log(err);
+        })
        
     }
     
