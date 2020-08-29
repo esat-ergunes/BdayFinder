@@ -1,5 +1,3 @@
-const { text } = require("body-parser");
-
 const base_url = "https://bdayfinder.herokuapp.com";
 
 primus = Primus.connect(base_url, {
@@ -40,7 +38,7 @@ btnSend.addEventListener('click', (e)=>{
         }).then(result =>{
             return result.json();
         }).then(json=>{
-        console.log(text);
+        console.log(message);
         }).catch(err=>{
             console.log(err);
         })
