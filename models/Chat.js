@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const chatchema = new Schema({
   text: { type: String, required: true }, // String is shorthand for {type: String}
   user: String,
+  Bday: String,
 });
 
 const Chat = mongoose.model("Chat", chatchema);

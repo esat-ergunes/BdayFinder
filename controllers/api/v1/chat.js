@@ -15,6 +15,7 @@ const create = (req, res) => {
   let message = new Chat();
   message.text = req.body.text;
   message.user = req.user.username;
+   message.Bday = req.user.Bday;
   message.save((err, doc) => {
 
     if(err){
