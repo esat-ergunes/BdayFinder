@@ -50,7 +50,7 @@ const create = (req, res, next) => {
       res.json({
         "status": "success",
         "data": {
-          "todo": docs
+          "chat": docs
         },
       });
     }
