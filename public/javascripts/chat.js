@@ -30,6 +30,7 @@ btnSend.addEventListener('click', (e)=>{
 
         fetch(base_url+"/api/v1/chat", {
    'headers': {
+      
      'Authorization': 'Bearer ' + localStorage.getItem('token')
    }
  }).then(result => {

@@ -30,11 +30,12 @@ const create = (req, res) => {
  
 };
 */
-const create = (req, res) => {
+const create = (req, res,next) => {
 /* get all users with the same birthday*/
 //console.log(req.user.username);
 
 console.log('fdfsdfsdfdsf');
+console.log(req.user.username);
   
 }
 
