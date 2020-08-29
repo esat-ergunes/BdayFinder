@@ -1,7 +1,7 @@
 const Chat = require("../../../models/Chat");
 const User = require("../../../models/User");
 
-
+/*
 const create = (req, res) => {
   console.log(req.body);
   let chat = new Chat();
@@ -29,6 +29,17 @@ const create = (req, res) => {
   
  
 };
+*/
+
+const create = (req, res, next) => {
+  
+
+  console.log(req.body.message);
+  
+  
+ 
+};
+
 
 
 module.exports.create=create;

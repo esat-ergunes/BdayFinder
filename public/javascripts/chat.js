@@ -1,3 +1,4 @@
+const { token } = require("morgan");
 
 const base_url = "https://bdayfinder.herokuapp.com";
 
@@ -47,7 +48,7 @@ btnSend.addEventListener('click', (e)=>{
 
        }).catch(err=>{
            console.log(err);
-           console.log("dsdqsdqs"+ localStorage.getItem("token"));
+           console.log(token);
        });
     }
     
