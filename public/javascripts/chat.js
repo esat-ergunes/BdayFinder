@@ -17,8 +17,8 @@ if (!localStorage.getItem("token")) {
   window.location.href = "login.html";
 }
 
-console.log(localStorage.getItem("token"));
 
+localStorage.getItem("token");
 /*add a message */
 
 let input = document.querySelector('.message');
@@ -48,7 +48,7 @@ btnSend.addEventListener('click', (e)=>{
 
        }).catch(err=>{
            console.log(err);
-           console.log(token);
+           console.log(localStorage.getItem("token"));
        });
     }
     
