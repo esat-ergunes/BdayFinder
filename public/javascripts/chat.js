@@ -28,7 +28,7 @@ btnSend.addEventListener('click', (e)=>{
     let message = input.value;
     if(message !== ""){
 
-        fetch(base_url + "/api/v1/userData", {
+        fetch(base_url + "/api/v1/chat", {
    'headers': {
      'Authorization': 'Bearer ' + localStorage.getItem('token')
    }
