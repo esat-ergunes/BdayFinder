@@ -37,7 +37,6 @@ if(process.env.dbconn === "production"){
   console.log('Local');
 }
 //console.log(process.env);
-console.log(process.env.NODE_ENV); 
 
 const app = express();
 

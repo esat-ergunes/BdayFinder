@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const chatchema = new Schema({
-  message: { type: String, required: true }, // String is shorthand for {type: String}
+  text: { type: String, required: true }, // String is shorthand for {type: String}
   user: String,
 });
 

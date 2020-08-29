@@ -1,6 +1,6 @@
 const Chat = require("../../../models/Chat");
 const User = require("../../../models/User");
-const Todo = require("../../../models/Todo");
+
 
 /*
 const create = (req, res) => {
@@ -34,17 +34,15 @@ const create = (req, res) => {
 
 const create = (req, res, next) => {
   console.log(req.body);
-  let todo = new Todo();
-  todo.text = req.body.text;
-  todo.user = req.body.user;
-  todo.Bday = req.body.Bday;
-  todo.completed = req.body.completed;
+  let chat = new Chat();
+  chat.text = req.body.text;
+  todo.user = "Esatergns12345";
   todo.save((err, doc) => {
 
     if(err){
       res.json({
         "status":"error",
-        "message":"Could not save this to do item"
+        "message":"Could not save this message item"
       })
     }
 
