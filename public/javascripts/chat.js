@@ -44,7 +44,7 @@ btnSend.addEventListener('click', (e)=>{
         console.log(json.data);
         console.log(json.data.Bday);
 
-        let message = `<div id="message-right"> ${json.data.text}<strong>${json.data.user}</strong>
+        let message = `<div id="message-right"> Helooooo <strong>you</strong>
            </div>`;
            input.value = '';
            input.focus();
