@@ -11,12 +11,29 @@ const getAll = (req, res) => {
 }
 
 const create = (req, res) => {
-  res.json({
-    "status":"success",
-    "data":{
-      "message":"Heloooooo :)"
+  console.log(req.body);
+  let message = new Chat();
+  message.text = req.body.text;
+  message.user = req.user.username;
+  message.save((err, doc) => {
+
+    if(err){
+      res.json({
+        "status":"error",
+        "message":"Could not save this message"
+      })
     }
-  })
+
+    if (!err) {
+      res.json({
+        "status": "success",
+        "data": {
+          "message": docs
+        },
+      });
+    }
+  });
+  
  
 }
 
