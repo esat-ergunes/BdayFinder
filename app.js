@@ -94,8 +94,8 @@ app.use(cors());
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/api/v1/todos", passport.authenticate('jwt', { session: false }),apiTodoRouter);
-app.use("/api/v1/chat", passport.authenticate('jwt', { session: false }),apiChatRouter);
 app.use("/api/v1/userData", passport.authenticate('jwt', { session: false }),apiUserRouter);
+app.use("/api/v1/chat", passport.authenticate('jwt', { session: false }),apiChatRouter);
 
 
 

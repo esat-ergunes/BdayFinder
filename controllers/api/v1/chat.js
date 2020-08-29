@@ -1,62 +1,24 @@
+
+
 const Chat = require("../../../models/Chat");
 const User = require("../../../models/User");
 
 
-/*
+
+const getAll = (req, res) => {
+  res.send("getAll");
+ 
+}
+
 const create = (req, res) => {
-  console.log(req.body);
-  let chat = new Chat();
-  chat.message = req.body.message;
-  chat.user = req.user.username;
-  console.log(chat.user = req.user.token);
-  chat.save((err, doc) => {
-
-    if(err){
-      res.json({
-        "status":"error",
-        "message":"Could not save this to do item"
-      })
+  res.json({
+    "status":"success",
+    "data":{
+      "message":"Heloooooo :)"
     }
-
-    if (!err) {
-      res.json({
-        "status": "success",
-        "data": {
-          "message": docs
-        },
-      });
-    }
-  });
-  
+  })
  
-};
-*/
+}
 
-const create = (req, res, next) => {
-  console.log(req.body);
-  let chat = new Chat();
-  chat.text = req.body.text;
-  todo.user = "Esatergns12345";
-  todo.save((err, doc) => {
-
-    if(err){
-      res.json({
-        "status":"error",
-        "message":"Could not save this message item"
-      })
-    }
-
-    if (!err) {
-      res.json({
-        "status": "success",
-        "data": {
-          "chat": docs
-        },
-      });
-    }
-  });
-  
- 
-};
-
-module.exports.create=create;
+module.exports.getAll = getAll;
+module.exports.create = create;
