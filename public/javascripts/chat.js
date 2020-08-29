@@ -1,6 +1,3 @@
-const { text, json } = require("body-parser");
-
-
 const base_url = "https://bdayfinder.herokuapp.com";
 
 primus = Primus.connect(base_url, {
