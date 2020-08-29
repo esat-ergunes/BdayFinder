@@ -28,25 +28,7 @@ btnSend.addEventListener('click', (e)=>{
     let message = input.value;
     if(message !== ""){
 
-        fetch(base_url+"/api/v1/chat", {
-   headers: {
-       "Content-Type": "application/json",
-     'Authorization': 'Bearer ' + localStorage.getItem('token')
-   },
-     body: JSON.stringify({
-       message: message,
-     }),
-    }).then(result => {
-     return result.json();
-   }).then(json => {
-     console.log(json);
-   }).catch(err => {
-     console.log("⛔️⛔️⛔️");
-      window.location.href = "login.html";
-    
-     
-     
-   });
+       console.log('qsdqsdqs');
 
        
     }
