@@ -29,10 +29,12 @@ btnSend.addEventListener('click', (e)=>{
     if(message !== ""){
 
        console.log('qsdqsdqs');
-        fetch(base_url+'/api/v1/chat',{
-
-        
-
+        fetch(base_url + "/api/v1/chat", {
+          method: "post",
+          headers: {
+            'Content-Type': "application/json",
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
         });
        
     }
