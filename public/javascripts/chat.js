@@ -21,6 +21,7 @@ if (!localStorage.getItem("token")) {
 
 let input = document.querySelector('.message');
 let btnSend = document.querySelector(".sendMessage");
+let roomTitle = document.querySelector(".chat-title");
 btnSend.addEventListener('click', (e)=>{
 
     let message = input.value;
@@ -38,7 +39,12 @@ btnSend.addEventListener('click', (e)=>{
         }).then(result =>{
             return result.json();
         }).then(json=>{
-        console.log(message);
+        let message = `<div id="message-right"> ${json.data.text}<strong>${json.data.user}</strong>
+           </div>`;
+           input.value = '';
+           input.focus();
+           document.querySelector(".msgList").insertAdjacentHTML('afterend',message);
+
         }).catch(err=>{
             console.log(err);
         })
