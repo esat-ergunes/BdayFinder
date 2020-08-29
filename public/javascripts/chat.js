@@ -1,6 +1,6 @@
 const base_url = "https://bdayfinder.herokuapp.com";
 
-primus = Primus.connect("http://localhost:3000", {
+primus = Primus.connect("https://bdayfinder.herokuapp.com", {
   reconnect: {
       max: Infinity // Number: The max delay before we try to reconnect.
     , min: 500 // Number: The minimum delay before we try reconnect.
@@ -50,7 +50,7 @@ btnSend.addEventListener('click', (e)=>{
            input.focus();
            document.querySelector(".msgList").insertAdjacentHTML('afterend',message);
 
-        }).catch(err=>{
+        }).catch(err =>{
             console.log(err);
         })
        
