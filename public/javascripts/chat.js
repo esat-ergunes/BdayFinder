@@ -18,7 +18,7 @@ if (!localStorage.getItem("token")) {
 }
 
 
-localStorage.getItem("token");
+
 /*add a message */
 
 let input = document.querySelector('.message');
@@ -27,33 +27,40 @@ btnSend.addEventListener('click', (e)=>{
 
     let message = input.value;
     if(message !== ""){
-        fetch(base_url+"/api/v1/chat", {
-       method: "post",
-       'headers': {
-         "Content-Type": "application/json",
-         'Authorization': 'Bearer ' + localStorage.getItem('token')
-       },
-       body: JSON.stringify({
-        "message":message
-       })
-     })
-       .then((response) => {
-         return response.json();
-       })
-       .then((json) => {
-         
-        let newMessage = ` <div id="message-right">${json.data.message.message} <strong>you</strong>
-           </div>`;
-           document.querySelector(".chat-message-list").insertAdjacentHTML('afterend',newMessage);
 
-       }).catch(err=>{
-           console.log(err);
-           console.log(localStorage.getItem("token"));
-       });
+        fetch(base_url + "/api/v1/userData", {
+   'headers': {
+     'Authorization': 'Bearer ' + localStorage.getItem('token')
+   }
+ }).then(result => {
+     return result.json();
+   }).then(json => {
+     console.log(json);
+   }).catch(err => {
+     console.log("⛔️⛔️⛔️");
+      window.location.href = "login.html";
+    
+     
+     
+   });
+
+       
     }
     
 
 e.preventDefault();
    
 
-})
+});
+
+
+
+
+ 
+
+
+
+
+
+
+
