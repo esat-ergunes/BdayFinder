@@ -39,6 +39,11 @@ btnSend.addEventListener('click', (e)=>{
         }).then(result =>{
             return result.json();
         }).then(json=>{
+
+        console.log(json);
+        console.log(json.data);
+        console.log(json.data.Bday);
+
         let message = `<div id="message-right"> ${json.data.text}<strong>${json.data.user}</strong>
            </div>`;
            input.value = '';
