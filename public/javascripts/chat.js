@@ -29,11 +29,14 @@ btnSend.addEventListener('click', (e)=>{
     if(message !== ""){
 
         fetch(base_url+"/api/v1/chat", {
-   'headers': {
-      
+   headers: {
+       "Content-Type": "application/json",
      'Authorization': 'Bearer ' + localStorage.getItem('token')
-   }
- }).then(result => {
+   },
+     body: JSON.stringify({
+       message: message,
+     }),
+    }).then(result => {
      return result.json();
    }).then(json => {
      console.log(json);
