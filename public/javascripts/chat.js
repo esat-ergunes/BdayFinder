@@ -58,7 +58,7 @@ btnSend.addEventListener('click', (e)=>{
             return result.json();
         }).then(json =>{
           
-        
+        console.log(json);
            input.value = '';
            input.focus();
          
