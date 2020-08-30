@@ -119,7 +119,7 @@ fetch(base_url + "/api/v1/userData", {
      return result.json();
    }).then(json => {
     
-console.log("GET... "+json);
+console.log("GET... "+ json.data);
      
    }).catch(err => {
      console.log("⛔️⛔️⛔️");
