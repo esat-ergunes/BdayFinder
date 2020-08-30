@@ -1,6 +1,6 @@
 const base_url = "https://bdayfinder.herokuapp.com";
 
-primus = Primus.connect("http://localhost:3000", {
+primus = Primus.connect("https://bdayfinder.herokuapp.com", {
   reconnect: {
       max: Infinity // Number: The max delay before we try to reconnect.
     , min: 500 // Number: The minimum delay before we try reconnect.
@@ -85,7 +85,7 @@ e.preventDefault();
 let getRoomtitle = ()=>{
 
 
-fetch("http://localhost:3000/api/v1/userData", {
+fetch(base_url + "/api/v1/userData", {
    'headers': {
      'Authorization': 'Bearer ' + localStorage.getItem('token')
    }
