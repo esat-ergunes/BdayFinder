@@ -123,7 +123,9 @@ fetch(base_url + "/api/v1/chat", {
      return result.json();
    }).then(json => {
     
-    var arrayLength = json.messageData.message;
+    let arrayLength = json.messageData.message;
+    console.log(json);
+    console.log(arrayLength);
 for (var i = 0; i < arrayLength; i++) {
     console.log(myStringArray[i]);
     //Do something
