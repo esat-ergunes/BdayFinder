@@ -58,6 +58,7 @@ btnSend.addEventListener('click', (e)=>{
             return result.json();
         }).then(json =>{
           
+          console.log(json.messageData);
         
            input.value = '';
            input.focus();
@@ -110,28 +111,4 @@ fetch(base_url + "/api/v1/userData", {
   getRoomtitle();
 
 
-  let getAllMessages = ()=>{
-    fetch(base_url + "/api/v1/chat", {
-          method: "GET",
-          headers: {
-            'Content-Type': "application/json",
-            'Authorization': 'Bearer ' + localStorage.getItem('token')
-          },
-        }).then(result => {
-     return result.json();
-   }).then(json => {
-    
-console.log("GET... "+ json.data);
-     
-   }).catch(err => {
-     console.log("⛔️⛔️⛔️");
-     console.log(err);
-      window.location.href = "/login.html";
-    
-     
-     
-   });
-
-  }
-
-  getAllMessages();
+  
