@@ -112,10 +112,12 @@ fetch(base_url + "/api/v1/userData", {
 
   let getAllMessages = ()=>{
     fetch(base_url + "/api/v1/chat", {
-   'headers': {
-     'Authorization': 'Bearer ' + localStorage.getItem('token')
-   }
- }).then(result => {
+          method: "GET",
+          headers: {
+            'Content-Type': "application/json",
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
+          },
+        }).then(result => {
      return result.json();
    }).then(json => {
     
