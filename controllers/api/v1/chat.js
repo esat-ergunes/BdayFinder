@@ -7,7 +7,19 @@ const User = require("../../../models/User");
 
 const getAll = (req, res) => {
 /* get all users with the same birthday*/
+Chat.find({
+  "Bday":req.user.Bday
+},(err,docs)=>{
+if (!err) {
+  res.json({
+    "status": "success",
+    "data": {
+      "message": docs
+    }
+  });
+}
 
+});
 
   
 }
