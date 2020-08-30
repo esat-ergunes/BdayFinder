@@ -131,3 +131,5 @@ console.log("GET... "+json);
    });
 
   }
+
+  getAllMessages();
