@@ -11,7 +11,7 @@ e.preventDefault();
     let link = document.querySelector(".signup");
     var validEmailRegEx = /^[A-Z0-9_'%=+!`#~$*?^{}&|-]+([\.][A-Z0-9_'%=+!`#~$*?^{}&|-]+)*@[A-Z0-9-]+(\.[A-Z0-9-]+)+$/i;
     
-console.log(base_url+"/users/signup");
+console.log("http://localhost:3000/users/signup");
     if(username != "" && password != "" && email != "" && password != "" && Bday != "" ){
 
 if (validEmailRegEx.test(email)) {
@@ -39,8 +39,9 @@ if (validEmailRegEx.test(email)) {
            let token = json.data.token;
 
            localStorage.setItem("token", token);
-           link.setAttribute("href", "/birthday/" + Bday);
+           //link.setAttribute("href", "/birthday/" + Bday);
            // window.location.href="app.html";
+           console.log(window.location.href="/birthday/"+Bday+".html");
            window.location.href="/birthday/"+Bday+".html";
          }
        });

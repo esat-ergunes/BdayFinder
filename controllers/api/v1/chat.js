@@ -6,12 +6,14 @@ const User = require("../../../models/User");
 
 
 const getAll = (req, res) => {
-  res.send("getAll");
- 
+/* get all users with the same birthday*/
+
+
+  
 }
 
 const create = (req, res) => {
-  console.log(req.body);
+  console.log(req.user);
   let message = new Chat();
   message.text = req.body.text;
   message.user = req.user.username;
@@ -29,7 +31,7 @@ const create = (req, res) => {
       res.json({
         "status": "success",
         "data": {
-          "message": docs
+          "message": doc
         },
       });
     }

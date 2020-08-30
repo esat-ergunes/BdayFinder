@@ -6,7 +6,7 @@ let logoutBtn = document.querySelector(".logout");
 let usrName = document.querySelector(".usrName");
 
 
-fetch(base_url+"/api/v1/userData", {
+fetch(base_url + "/api/v1/userData", {
    'headers': {
      'Authorization': 'Bearer ' + localStorage.getItem('token')
    }

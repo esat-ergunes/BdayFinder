@@ -18,7 +18,8 @@ if (!err) {
       "users": docs
     },"data2":{
         "id":req.user.id,
-        "user": req.user.username
+        "user": req.user.username,
+        "Bday": req.user.Bday
         
     }
   });
