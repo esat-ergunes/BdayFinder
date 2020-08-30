@@ -58,8 +58,7 @@ btnSend.addEventListener('click', (e)=>{
             return result.json();
         }).then(json =>{
           
-          console.log(json.messageData);
-        
+         
            input.value = '';
            input.focus();
          
@@ -112,3 +111,28 @@ fetch(base_url + "/api/v1/userData", {
 
 
   
+
+  let getAllmessages = ()=>{
+
+
+fetch(base_url + "/api/v1/chat", {
+   'headers': {
+     'Authorization': 'Bearer ' + localStorage.getItem('token')
+   }
+ }).then(result => {
+     return result.json();
+   }).then(json => {
+    
+    console.log(json);
+     
+   }).catch(err => {
+     console.log("⛔️⛔️⛔️");
+     console.log(err);
+      window.location.href = "/login.html";
+    
+     
+     
+   });
+  }
+
+  getAllmessages();
