@@ -123,7 +123,11 @@ fetch(base_url + "/api/v1/chat", {
      return result.json();
    }).then(json => {
     
-    console.log(json);
+    var arrayLength = json.messageData.message;
+for (var i = 0; i < arrayLength; i++) {
+    console.log(myStringArray[i]);
+    //Do something
+}
      
    }).catch(err => {
      console.log("⛔️⛔️⛔️");
