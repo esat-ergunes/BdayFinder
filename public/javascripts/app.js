@@ -1,12 +1,10 @@
 /* heroku Url*/
 const base_url = "https://bdayfinder.herokuapp.com";
-if (!localStorage.getItem("token")) {
-  window.location.href = "login.html";
-}
+
 
  fetch(base_url + "/api/v1/userData", {
    'headers': {
-     'Authorization': 'Bearer ' + localStorage.getItem('token')
+     "Content-Type": "application/json",
    }
  }).then(result => {
      return result.json();

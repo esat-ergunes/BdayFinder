@@ -13,10 +13,11 @@ Chat.find({
 if (!err) {
   res.json({
     "status": "success",
-    "data": {
+    "messageData": {
       "message": docs
     }
   });
+  console.log("van controllers: " + res.json);
 }
 
 });
