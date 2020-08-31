@@ -27,11 +27,13 @@ body{
     
       border-radius: 5px 0 0 0;
     box-shadow: 0 1px 3px -1px rgba(0,0,0,0.75);
-    z-index: 1;
+    /*z-index: 1;*/
     color: white;
     text-align: center;
     padding-top: 21px;
     border-bottom: 1px solid rgba(255,255,255,0.25);
+    grid-row-start: 1;
+    grid-column-start: 1;
     
 }
 
@@ -39,6 +41,8 @@ body{
     grid-area:conversation-list;
     padding-top: 20px;
         overflow: scroll;
+        color: white;
+    text-align: center;
     
 }
 
@@ -174,4 +178,21 @@ div#message-right {
     color: gray;
     font-size: 28px;
 }
+
+
+
+.back {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    color: white;
+    z-index: 1;
+    align-self: center;
+}
+
+i.fas.fa-chevron-left {
+    font-size: 35px;
+    padding-left: 27px;
+    color: white;
+}
+
 

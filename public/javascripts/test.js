@@ -72,5 +72,5 @@ fetch(base_url + "/api/v1/userData", {
 
    mapBtn.addEventListener("click", () => {
      window.location.href = "/map.html";
-     localStorage.clear();
+    
    });

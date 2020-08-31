@@ -16,6 +16,8 @@ primus.on('data',(data)=>{
 });
 
 
+let backBtn = document.querySelector(".backBtn");
+
 
 
 
@@ -178,3 +180,10 @@ document.querySelector(".msgList").appendChild(NewMessage);
   }
 
   getAllmessages();
+
+
+
+ backBtn.addEventListener("click", (e) => {
+   e.preventDefault();
+   window.location.href = "/index.html";
+ });

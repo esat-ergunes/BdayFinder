@@ -2,7 +2,7 @@
 
 
 
-
+let backBtn = document.querySelector(".backBtn");
 
 
   mapboxgl.accessToken =
@@ -15,15 +15,17 @@
   });
 
 
-  
+
   /*var marker = new mapboxgl.Marker()
     .setLngLat([4.3483136, 50.846105599999994])
     .addTo(map); // add the marker to the map*/
 
-
-
-
-console.log('qsdqsdqs');
+ backBtn.addEventListener("click", (e) => {
+     e.preventDefault();
+     window.location.href = "/index.html";
+     console.log('clicked');
+     
+   });
 
 
 
