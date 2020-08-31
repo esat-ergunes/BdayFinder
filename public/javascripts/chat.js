@@ -132,7 +132,10 @@ fetch(base_url + "/api/v1/chat", {
     /*console.log(json);
     console.log(arrayLength);*/
     
-for (var i = 0; i < arrayLength; i++) {
+    if(arrayLength == 0){
+      console.log("there is actualy no messages");
+    }else{
+      for (var i = 0; i < arrayLength; i++) {
     
     let messageArray = json.messageData.message[i].text;
   
@@ -149,6 +152,10 @@ document.querySelector(".msgList").appendChild(NewMessage);
 
 
 }
+    }
+
+
+
      
    }).catch(err => {
      console.log("⛔️⛔️⛔️");
