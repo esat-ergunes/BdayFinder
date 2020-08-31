@@ -68,7 +68,7 @@ btnSend.addEventListener('click', (e)=>{
             "Bday":json.data.message.Bday
            });
            //appendMessage(json);
-
+           document.querySelector(".msgList").animate({scrollTop:10000000});
         }).catch(err =>{
             console.log(err);
         })
