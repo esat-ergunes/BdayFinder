@@ -141,14 +141,14 @@ fetch(base_url + "/api/v1/chat", {
   
     console.log(messageArray);
     //Do something
-
+        /*
     let NewMessage = document.createElement('div'); 
   NewMessage.id="message-right";
     NewMessage.innerHTML = messageArray + '<strong>'+ json.messageData.message[i].user+'</strong>';
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
   document.querySelector(".msgList").appendChild(NewMessage);
-
+*/
 
 
 }
