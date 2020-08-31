@@ -29,7 +29,7 @@ let appendMessage = (json)=> {
   //let NewMessage = `<div id="message-right"> Helooooo <strong>you</strong></div>`;
   let NewMessage = document.createElement('div'); // is a node
   NewMessage.id="message-right";
-    NewMessage.innerHTML = `${json.data.message.text} <strong> ${json.data.message.user}</strong>`;
+    NewMessage.innerHTML = `<strong> ${json.data.message.user}: </strong> ${json.data.message.text}`;
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
   document.querySelector(".msgList").appendChild(NewMessage);
@@ -124,39 +124,22 @@ fetch(base_url + "/api/v1/chat", {
    }).then(json => {
     
     let arrayLength = json.messageData.message.length;
-    /*console.log(json.messageData.message);
-    console.log(json.messageData.message[1]);
-    console.log(json.messageData.message[1].text);*/
+    
     console.log(arrayLength);
   
-    /*
-    if(arrayLength == 0){
-      console.log("there is actualy no messages");
-    }else{
-      for (var i = 0; i < arrayLength; i++) {
     
-    let messageArray = json.messageData.message[i].text;
-  
-    console.log(messageArray);
-    //Do something
-      
-    let NewMessage = document.createElement('div'); 
-  NewMessage.id="message-right";
-    NewMessage.innerHTML = messageArray + '<strong>'+ json.messageData.message[i].user+'</strong>';
-document.querySelector(".msgList").appendChild(NewMessage);
-  console.log(NewMessage);
-  document.querySelector(".msgList").appendChild(NewMessage);
-
-}
-    }*/
 
 
 
     if(arrayLength == 0){
       console.log('there is no messages');
     }else{
+      
+      
        for (var i = 0; i < arrayLength; i++) {
     
+        
+
     let messageArray = json.messageData.message[i].text;
   
     console.log(messageArray);
@@ -164,7 +147,7 @@ document.querySelector(".msgList").appendChild(NewMessage);
       
     let NewMessage = document.createElement('div'); 
   NewMessage.id="message";
-    NewMessage.innerHTML = messageArray + ' <strong>'+ json.messageData.message[i].user +'</strong>';
+    NewMessage.innerHTML = '<strong>'+ json.messageData.message[i].user +': </strong> ' + messageArray ;
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
   document.querySelector(".msgList").appendChild(NewMessage);
