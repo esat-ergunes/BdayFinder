@@ -158,6 +158,7 @@ document.querySelector(".msgList").appendChild(NewMessage);
     /*console.log(json.messageData.message);
     console.log(json.messageData.message[1]);
     console.log(json.messageData.message[1].text);*/
+    console.log(json);
 
     }
 
