@@ -155,9 +155,9 @@ document.querySelector(".msgList").appendChild(NewMessage);
     if(arrayLength == 0){
       console.log('there is no messages');
     }else{
-        console.log(json.messageData.message);
+    /*console.log(json.messageData.message);
     console.log(json.messageData.message[1]);
-    console.log(json.messageData.message[1].text);
+    console.log(json.messageData.message[1].text);*/
 
     }
 
