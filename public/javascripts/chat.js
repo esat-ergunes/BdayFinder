@@ -70,7 +70,7 @@ btnSend.addEventListener('click', (e)=>{
            //appendMessage(json);
            //document.querySelector(".msgList").animate({scrollTop:10000000});
            let objDiv = document.querySelector(".msgList");
-               objDiv.scrollTop = 691;
+               objDiv.scrollTop = objDiv.scrollTop + 691;
                 console.log(objDiv.scrollTop);
                console.log(objDiv.scrollTop + 691);
         }).catch(err =>{
