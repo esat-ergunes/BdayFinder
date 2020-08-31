@@ -122,13 +122,26 @@ fetch(base_url + "/api/v1/chat", {
  }).then(result => {
      return result.json();
    }).then(json => {
-    /*
+    
     let arrayLength = json.messageData.message.length;
     console.log(json.messageData.message);
     console.log(json.messageData.message[1]);
     console.log(json.messageData.message[1].text);
     console.log(arrayLength);
-  */
+  
+    if(arrayLength === 0){
+      console.log('no message');
+    }else{
+      console.log('message');
+      let arrayLength = json.messageData.message.length;
+    console.log(json.messageData.message);
+    console.log(json.messageData.message[1]);
+    console.log(json.messageData.message[1].text);
+    console.log(arrayLength);
+    }
+
+
+
     /*
     if(arrayLength == 0){
       console.log("there is actualy no messages");
