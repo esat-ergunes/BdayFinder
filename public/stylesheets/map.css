@@ -1,0 +1,22 @@
+body{
+          margin: 0;
+      }
+
+      #map {
+        width: 100%;
+        height: 100vh;
+      }
+
+      #Backbtn {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    background: #111616a8;
+    padding: 10px;
+    
+}
+i.fas.fa-chevron-left {
+    color: white;
+    font-size: 33px;
+    padding-left: 20px;
+}

@@ -7,6 +7,7 @@ const base_url = "https://bdayfinder.herokuapp.com";
 let welcomeText = document.querySelector("card-header");
 let registeredUsers = document.querySelector(".registeredUsers");
 let logoutBtn = document.querySelector(".logout");
+let mapBtn = document.querySelector(".map");
 let usrName = document.querySelector(".usrName");
 
 
@@ -67,3 +68,9 @@ fetch(base_url + "/api/v1/userData", {
    });
 
 
+
+
+   mapBtn.addEventListener("click", () => {
+     window.location.href = "/map.html";
+     localStorage.clear();
+   });

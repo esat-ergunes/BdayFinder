@@ -94,3 +94,18 @@ i.fas.fa-power-off {
     margin-left: 20px;
     margin-top: 30px;
 }
+
+
+a.map{
+grid-column-start: 4;
+    text-align: end;
+}
+
+
+
+i.fas.fa-map-marked-alt {
+    color: white;
+    font-size: 29px;
+    margin-left: 20px;
+    margin-top: 30px;
+}
