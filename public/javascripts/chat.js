@@ -123,23 +123,12 @@ fetch(base_url + "/api/v1/chat", {
      return result.json();
    }).then(json => {
     
-  
-  let arrayLength = json.messageData.message.length;
-    if(arrayLength != 0){
-       console.log('message');
-    //let arrayLength = json.messageData.message.length;
+    let arrayLength = json.messageData.message.length;
     console.log(json.messageData.message);
     console.log(json.messageData.message[1]);
     console.log(json.messageData.message[1].text);
     console.log(arrayLength);
-    
-    }else{
-     console.log("dsdsqdqsdqs");
-
-    }
-
-
-
+  
     /*
     if(arrayLength == 0){
       console.log("there is actualy no messages");
@@ -157,8 +146,6 @@ fetch(base_url + "/api/v1/chat", {
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
   document.querySelector(".msgList").appendChild(NewMessage);
-
-
 
 }
     }*/
