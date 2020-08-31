@@ -27,7 +27,6 @@ if (!localStorage.getItem("token")) {
 
 let appendMessage = (json)=> {  
   //let NewMessage = `<div id="message-right"> Helooooo <strong>you</strong></div>`;
-  console.log(json.data.message.user);
   let NewMessage = document.createElement('div'); // is a node
   NewMessage.id="message-right";
     NewMessage.innerHTML = `${json.data.message.text} <strong>You</strong>`;
@@ -140,9 +139,9 @@ for (var i = 0; i < arrayLength; i++) {
     console.log(messageArray);
     //Do something
 
-    let NewMessage = document.createElement('div');
+    let NewMessage = document.createElement('div'); 
   NewMessage.id="message-right";
-    NewMessage.innerHTML = messageArray + '<strong>'+ json.messageData.message[i].user +'</strong>';
+    NewMessage.innerHTML = messageArray + '<strong>'+ json.messageData.message[i].user+'</strong>';
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
   document.querySelector(".msgList").appendChild(NewMessage);
