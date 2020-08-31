@@ -17,7 +17,7 @@ if (!err) {
       "message": docs
     }
   });
-  console.log("van controllers: " + res.json);
+  
 }
 
 });
