@@ -29,7 +29,7 @@ let appendMessage = (json)=> {
   //let NewMessage = `<div id="message-right"> Helooooo <strong>you</strong></div>`;
   let NewMessage = document.createElement('div'); // is a node
   NewMessage.id="message-right";
-    NewMessage.innerHTML = `${json.data.message.text} <strong>You</strong>`;
+    NewMessage.innerHTML = `${json.data.message.text} <strong> ${json.data.message.user}</strong>`;
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
   document.querySelector(".msgList").appendChild(NewMessage);
@@ -164,7 +164,7 @@ document.querySelector(".msgList").appendChild(NewMessage);
       
     let NewMessage = document.createElement('div'); 
   NewMessage.id="message-right";
-    NewMessage.innerHTML = messageArray + '<strong>'+ json.messageData.message[i].user+'</strong>';
+    NewMessage.innerHTML = messageArray + ' <strong>'+ json.messageData.message[i].user +'</strong>';
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
   document.querySelector(".msgList").appendChild(NewMessage);
