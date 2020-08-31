@@ -1,4 +1,8 @@
 
+if (!localStorage.getItem("token")) {
+  window.location.href = "login.html";
+}
+
 const base_url = "https://bdayfinder.herokuapp.com";
 let welcomeText = document.querySelector("card-header");
 let registeredUsers = document.querySelector(".registeredUsers");
