@@ -28,7 +28,7 @@ if (!localStorage.getItem("token")) {
 let appendMessage = (json)=> {  
   //let NewMessage = `<div id="message-right"> Helooooo <strong>you</strong></div>`;
   let NewMessage = document.createElement('div'); // is a node
-  NewMessage.id="message-right";
+  NewMessage.id="message";
     NewMessage.innerHTML = `<strong> ${json.data.message.user}: </strong> ${json.data.message.text}`;
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
