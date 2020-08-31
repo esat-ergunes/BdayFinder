@@ -155,10 +155,21 @@ document.querySelector(".msgList").appendChild(NewMessage);
     if(arrayLength == 0){
       console.log('there is no messages');
     }else{
-    /*console.log(json.messageData.message);
-    console.log(json.messageData.message[1]);
-    console.log(json.messageData.message[1].text);*/
-    console.log(json);
+       for (var i = 0; i < arrayLength; i++) {
+    
+    let messageArray = json.messageData.message[i].text;
+  
+    console.log(messageArray);
+    //Do something
+      
+    let NewMessage = document.createElement('div'); 
+  NewMessage.id="message-right";
+    NewMessage.innerHTML = messageArray + '<strong>'+ json.messageData.message[i].user+'</strong>';
+document.querySelector(".msgList").appendChild(NewMessage);
+  console.log(NewMessage);
+  document.querySelector(".msgList").appendChild(NewMessage);
+
+}
 
     }
 
