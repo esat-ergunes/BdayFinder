@@ -133,8 +133,7 @@ fetch(base_url + "/api/v1/chat", {
     console.log(arrayLength);*/
     
 for (var i = 0; i < arrayLength; i++) {
-    console.log(json.messageData.message[i].text);
-    console.log(arrayLength[i].text);
+    
     //Do something
 }
      
