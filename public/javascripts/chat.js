@@ -72,7 +72,7 @@ btnSend.addEventListener('click', (e)=>{
            let objDiv = document.querySelector(".msgList");
                //objDiv.scrollTop = objDiv.scrollTo(objDiv.scrollHeight+300);
                objDiv.scrollTo({
-                 top: 1100,
+                 top: 1200,
                  left: 0,
                  behavior: "smooth",
                });
