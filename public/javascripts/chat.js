@@ -163,7 +163,7 @@ document.querySelector(".msgList").appendChild(NewMessage);
     //Do something
       
     let NewMessage = document.createElement('div'); 
-  NewMessage.id="message-right";
+  NewMessage.id="message";
     NewMessage.innerHTML = messageArray + ' <strong>'+ json.messageData.message[i].user +'</strong>';
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
