@@ -30,7 +30,7 @@ let appendMessage = (json)=> {
   console.log(json.data.message.user);
   let NewMessage = document.createElement('div'); // is a node
   NewMessage.id="message-right";
-    NewMessage.innerHTML = `${json.data.message.text} <strong>${json.data.message.user}</strong>`;
+    NewMessage.innerHTML = `${json.data.message.text} <strong>You</strong>`;
 document.querySelector(".msgList").appendChild(NewMessage);
   console.log(NewMessage);
   document.querySelector(".msgList").appendChild(NewMessage);
