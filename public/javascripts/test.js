@@ -10,6 +10,9 @@ let logoutBtn = document.querySelector(".logout");
 let mapBtn = document.querySelector(".map");
 let usrName = document.querySelector(".usrName");
 
+if (!localStorage.getItem("token")) {
+  window.location.href = "login.html";
+}
 
 fetch(base_url + "/api/v1/userData", {
    'headers': {
